@@ -94,7 +94,6 @@ db.users.insertMany([
   type: String,
   model: String,
   battery: Number,
-  quantity: Number,
   position: {
     lat: Number,
     lon: Number
@@ -112,7 +111,6 @@ db.vehicles.insertMany([
     type: "Monopattino",
     model: "Xiaomi Pro 2",
     battery: 85,
-    quantity: 15,
     position: { lat: 45.4642, lon: 9.1900 },
     extra_specs: { max_speed_kmh: 25 }
   },
@@ -121,7 +119,6 @@ db.vehicles.insertMany([
     type: "Bici Elettrica",
     model: "VanMoof S3",
     battery: 40,
-    quantity: 10,
     position: { lat: 41.9028, lon: 12.4964 },
     extra_specs: { gear: "Elettronico" }
   },
@@ -130,7 +127,6 @@ db.vehicles.insertMany([
     type: "Scooter",
     model: "Segway E300",
     battery: 60,
-    quantity: 6,
     position: { lat: 48.8566, lon: 2.3522 },
     extra_specs: { max_speed_kmh: 45 }
   },
@@ -139,7 +135,6 @@ db.vehicles.insertMany([
     type: "Micro-Car",
     model: "Aixam City",
     battery: 70,
-    quantity: 2,
     position: { lat: 40.4168, lon: -3.7038 },
     extra_specs: { seats: 2 }
   }
