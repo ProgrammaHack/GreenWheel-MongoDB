@@ -105,40 +105,37 @@ db.users.insertMany([
 ### Inserimento dati
 
 ```js
-db.vehicles.insertMany([
-  {
-    vehicle_id: "V01",
-    type: "Monopattino",
-    model: "Xiaomi Pro 2",
-    battery: 85,
-    position: { lat: 45.4642, lon: 9.1900 },
-    extra_specs: { max_speed_kmh: 25 }
-  },
-  {
-    vehicle_id: "V02",
-    type: "Bici Elettrica",
-    model: "VanMoof S3",
-    battery: 40,
-    position: { lat: 41.9028, lon: 12.4964 },
-    extra_specs: { gear: "Elettronico" }
-  },
-  {
-    vehicle_id: "V03",
-    type: "Scooter",
-    model: "Segway E300",
-    battery: 60,
-    position: { lat: 48.8566, lon: 2.3522 },
-    extra_specs: { max_speed_kmh: 45 }
-  },
-  {
-    vehicle_id: "V04",
-    type: "Micro-Car",
-    model: "Aixam City",
-    battery: 70,
-    position: { lat: 40.4168, lon: -3.7038 },
-    extra_specs: { seats: 2 }
+db.vehicles.insertMany(
+Array.from({ length: 50 }).map((_, i) => {
+
+  const types = [
+    { type: "Monopattino", models: ["Xiaomi Pro 2", "Xiaomi Essential", "Segway Air"] },
+    { type: "Bici Elettrica", models: ["VanMoof S3", "Specialized Turbo", "Cube Hybrid"] },
+    { type: "Scooter", models: ["Segway E300", "Ninebot Max", "Silence S01"] },
+    { type: "Micro-Car", models: ["Aixam City", "Ligier JS50", "Microcar MGO"] }
+  ]
+
+  let group = types[i % 4]
+  let model = group.models[i % group.models.length]
+
+  return {
+    vehicle_id: "V" + String(i + 1).padStart(3, "0"),
+    type: group.type,
+    model: model,
+    battery: Math.floor(Math.random() * 100),
+
+    position: {
+      lat: 45 + Math.random() * 10,
+      lon: 9 + Math.random() * 10
+    },
+
+    extra_specs: {
+      max_speed_kmh: 20 + Math.floor(Math.random() * 40)
+    }
   }
-])
+
+})
+)
 ```
 
 ---
