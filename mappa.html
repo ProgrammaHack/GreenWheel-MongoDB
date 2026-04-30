@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GreenWheel Map</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+  <style>
+    #map {
+      height: 600px;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>GreenWheel - Percorso corsa reale</h2>
+
+<select id="rentalSelect"></select>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+
+let map = L.map('map').setView([45.4642, 9.19], 13)
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: 'GreenWheel'
+}).addTo(map)
+
+let polyline
+let markers = []
+
+// carica lista corse
+async function loadRentals() {
+  const res = await fetch("http://localhost:3000/spent/U001")
+  const select = document.getElementById("rentalSelect")
+
+  // simuliamo lista (puoi migliorare dopo)
+  for (let i = 1; i <= 10; i++) {
+    let option = document.createElement("option")
+    option.value = "R000" + i
+    option.innerText = "Corsa R000" + i
+    select.appendChild(option)
+  }
+}
+
+// carica percorso
+async function loadRoute(rentalId) {
+
+  const res = await fetch("http://localhost:3000/route/" + rentalId)
+  const route = await res.json()
+
+  if (!route || route.length === 0) return
+
+  // pulisci mappa
+  if (polyline) map.removeLayer(polyline)
+  markers.forEach(m => map.removeLayer(m))
+  markers = []
+
+  const coords = route.map(p => [p.lat, p.lon])
+
+  polyline = L.polyline(coords, {
+    color: "blue",
+    weight: 4
+  }).addTo(map)
+
+  map.fitBounds(polyline.getBounds())
+
+  // START
+  markers.push(
+    L.marker(coords[0]).addTo(map).bindPopup("START")
+  )
+
+  // END
+  markers.push(
+    L.marker(coords[coords.length - 1]).addTo(map).bindPopup("END")
+  )
+}
+
+// cambio corsa
+document.getElementById("rentalSelect").addEventListener("change", (e) => {
+  loadRoute(e.target.value)
+})
+
+// init
+loadRentals()
+loadRoute("R0001")
+
+</script>
+
+</body>
+</html>
