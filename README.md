@@ -1,4 +1,6 @@
 # GREENWHEEL – DOCUMENTAZIONE MONGODB
+### Contributors
+@abellomo-rgb, @MatCur997, @andrea-pr0g, @ProgrammaHack
 
 ---
 
@@ -286,3 +288,4 @@ Il sistema GreenWheel è stato progettato con MongoDB per:
 * collegare utenti, veicoli e corse tramite ID
 * simulare un sistema reale di car sharing
 
+---
