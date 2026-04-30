@@ -1,0 +1,20 @@
+{"_id":{"$oid":"69f35c38430179d47b8de826"},"user_id":"U001","name":"Mario Rossi","payment_method":"token_1","rating":4.8}
+{"_id":{"$oid":"69f35c38430179d47b8de827"},"user_id":"U002","name":"Giulia Bianchi","payment_method":"token_2","rating":4.6}
+{"_id":{"$oid":"69f35c38430179d47b8de828"},"user_id":"U003","name":"Luca Verdi","payment_method":"token_3","rating":4.7}
+{"_id":{"$oid":"69f35c38430179d47b8de829"},"user_id":"U004","name":"Francesca Russo","payment_method":"token_4","rating":4.9}
+{"_id":{"$oid":"69f35c38430179d47b8de82a"},"user_id":"U005","name":"Andrea Ferrari","payment_method":"token_5","rating":4.5}
+{"_id":{"$oid":"69f35c38430179d47b8de82b"},"user_id":"U006","name":"Alessandro Colombo","payment_method":"token_6","rating":4.4}
+{"_id":{"$oid":"69f35c38430179d47b8de82c"},"user_id":"U007","name":"Martina Romano","payment_method":"token_7","rating":4.8}
+{"_id":{"$oid":"69f35c38430179d47b8de82d"},"user_id":"U008","name":"Davide Conti","payment_method":"token_8","rating":4.2}
+{"_id":{"$oid":"69f35c38430179d47b8de82e"},"user_id":"U009","name":"Elena Galli","payment_method":"token_9","rating":4.9}
+{"_id":{"$oid":"69f35c38430179d47b8de82f"},"user_id":"U010","name":"Marco Lombardi","payment_method":"token_10","rating":4.3}
+{"_id":{"$oid":"69f35c38430179d47b8de830"},"user_id":"U011","name":"Sara Fontana","payment_method":"token_11","rating":4.7}
+{"_id":{"$oid":"69f35c38430179d47b8de831"},"user_id":"U012","name":"Giorgio Ricci","payment_method":"token_12","rating":4.1}
+{"_id":{"$oid":"69f35c38430179d47b8de832"},"user_id":"U013","name":"Chiara Moretti","payment_method":"token_13","rating":4.6}
+{"_id":{"$oid":"69f35c38430179d47b8de833"},"user_id":"U014","name":"Antonio Greco","payment_method":"token_14","rating":4}
+{"_id":{"$oid":"69f35c38430179d47b8de834"},"user_id":"U015","name":"Valentina Marino","payment_method":"token_15","rating":4.9}
+{"_id":{"$oid":"69f35c38430179d47b8de835"},"user_id":"U016","name":"Stefano De Luca","payment_method":"token_16","rating":4.3}
+{"_id":{"$oid":"69f35c38430179d47b8de836"},"user_id":"U017","name":"Federica Rinaldi","payment_method":"token_17","rating":4.8}
+{"_id":{"$oid":"69f35c38430179d47b8de837"},"user_id":"U018","name":"Matteo Barbieri","payment_method":"token_18","rating":4.2}
+{"_id":{"$oid":"69f35c38430179d47b8de838"},"user_id":"U019","name":"Beatrice Serra","payment_method":"token_19","rating":4.7}
+{"_id":{"$oid":"69f35c38430179d47b8de839"},"user_id":"U020","name":"Nicola Mancini","payment_method":"token_20","rating":4.4}
