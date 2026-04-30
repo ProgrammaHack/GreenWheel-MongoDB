@@ -260,6 +260,18 @@ Questa query restituisce l’ultima corsa effettuata dall’utente, utile per vi
 
 ---
 
+### 4.4 Visualizzazione del percorso su mappa reale
+
+Per visualizzare graficamente il percorso GPS di una corsa viene utilizzata una mappa reale basata su OpenStreetMap tramite la libreria Leaflet.
+
+Il backend Node.js recupera i dati da MongoDB e li espone tramite API REST.
+
+#### API utilizzata
+
+```js
+GET /route/R0001
+```
+
 ## 5. RELAZIONE FINALE – SCELTA TECNOLOGIA
 
 MongoDB è stato scelto per lo sviluppo del progetto GreenWheel perché permette una gestione flessibile e scalabile dei dati.
