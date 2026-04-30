@@ -196,6 +196,84 @@ Array.from({ length: 200 }).map((_, i) => {
 })
 )
 ```
+---
+## 4. QUERY DI TEST
+
+---
+
+### 4.1 Veicoli con batteria inferiore al 20%
+
+```js
+db.vehicles.find(
+  { battery: { $lt: 20 } },
+  { vehicle_id: 1, type: 1, battery: 1, _id: 0 }
+)
+````
+
+### Spiegazione
+
+Questa query restituisce tutti i veicoli con batteria inferiore al 20%, utili per operazioni di ricarica.
+
+---
+
+### 4.2 Totale speso da un utente nell’ultimo mese
+
+```js
+db.rentals.aggregate([
+  {
+    $match: {
+      user_id: "U001",
+      start_time: {
+        $gte: new Date("2023-09-30")
+      }
+    }
+  },
+  {
+    $group: {
+      _id: "$user_id",
+      total_spent: { $sum: "$total_cost" }
+    }
+  }
+])
+```
+
+### Spiegazione
+
+La query filtra le corse dell’utente e somma il costo totale delle corse effettuate nell’ultimo mese.
+
+---
+
+### 4.3 Ultima corsa di un utente (coordinate GPS)
+
+```js
+db.rentals.find(
+  { user_id: "U001" },
+  { route: 1, start_time: 1, _id: 0 }
+)
+.sort({ start_time: -1 })
+.limit(1)
+```
+
+### Spiegazione
+
+Questa query restituisce l’ultima corsa effettuata dall’utente, utile per visualizzare il percorso su una mappa.
+
+---
+
+## 5. RELAZIONE FINALE – SCELTA TECNOLOGIA
+
+MongoDB è stato scelto per lo sviluppo del progetto GreenWheel perché permette una gestione flessibile e scalabile dei dati.
+
+A differenza dei database relazionali, non richiede schemi rigidi e consente di memorizzare strutture complesse come array e documenti annidati, fondamentali per rappresentare i percorsi GPS delle corse.
+
+Inoltre MongoDB è particolarmente adatto per:
+
+* dati dinamici e in continua evoluzione (nuovi tipi di veicoli)
+* gestione di grandi quantità di eventi (200 corse e oltre)
+* sistemi real-time di mobilità urbana
+* scalabilità orizzontale del sistema
+
+Per questi motivi MongoDB rappresenta la soluzione ideale per un’applicazione di car sharing moderna come GreenWheel.
 
 ---
 
